@@ -105,7 +105,7 @@ Token used for API Requests
         ↓
 Secure Access to Resources
 
-📸 Future Enhancements
+📸 Future Enhancements:
 Payment Integration for Donations
 Real-time Blood Availability Tracking
 Mobile App Integration
@@ -113,8 +113,7 @@ SMS OTP Integration (Production)
 Dashboard Analytics
 This project is designed with future scalability and AI integration in mind
 
-🎯 Purpose of Project
-
+🎯 Purpose of Project: 
 This project is developed as a placement-ready backend project to demonstrate:
 Real-world problem solving
 Secure authentication system
