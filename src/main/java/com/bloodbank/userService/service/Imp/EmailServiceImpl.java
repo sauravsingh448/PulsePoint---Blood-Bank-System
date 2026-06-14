@@ -17,7 +17,9 @@ public class EmailServiceImpl implements EmailService {
     @Override
     public void sendPasswordResetEmail(String toEmail, String token) {
 
-        String resetLink = "https://localhost:3000/reset-password?token=" + token;
+        // React frontend reset password page
+        String resetLink =
+                "https://medical-service-7ghq.vercel.app/reset-password?token=" + token;
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(toEmail);
         message.setSubject("Blood Bank Password Reset");

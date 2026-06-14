@@ -38,7 +38,7 @@ public class AuthServiceForgotImp implements AuthServiceForgot {
         //random unique token generate
         String token = UUID.randomUUID().toString();
         user.setResetToken(token);
-        user.setTokenExpiry(LocalDateTime.now().plusMinutes(15));
+        user.setTokenExpiry(LocalDateTime.now().plusMinutes(10));
         userRepository.save(user);
         emailService.sendPasswordResetEmail(user.getEmail(), token);
     }
