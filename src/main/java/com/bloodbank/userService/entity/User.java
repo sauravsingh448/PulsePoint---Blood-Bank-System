@@ -27,20 +27,19 @@ public class User {
 
     @Column(nullable = false, unique = true)
     private String email;
-
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String password;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String bloodGroup;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String contact;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String address;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private Integer age;
 
     @Column(name = "reset_token", nullable = true)
@@ -65,5 +64,9 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id") // Column mapping to Role entity
     )
     private Set<Role> roles = new HashSet<>(); // User roles stored here
+
+    @Column(nullable = true)
+    private String provider; // provider help user login kis method se hua hi
+    private boolean profileCompleted = false; // if user profile incomplete the mark profile complete
 }
 

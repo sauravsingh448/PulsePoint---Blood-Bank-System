@@ -18,12 +18,12 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-
     @Autowired
     private JwtTokenValidator jwtTokenValidator;
-
     @Autowired
     private CustomerUserDetailsService customerUserDetailsService;
+    @Autowired
+    private OAuth2SuccessHandler oAuth2SuccessHandler;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -44,7 +44,10 @@ public class SecurityConfig {
                         .requestMatchers("/api/**").hasAnyRole("DONOR", "RECIPIENT")
                         .anyRequest().authenticated()
                 )
-                .addFilterBefore(jwtTokenValidator, UsernamePasswordAuthenticationFilter.class);
+                // JWT token
+                .addFilterBefore(jwtTokenValidator, UsernamePasswordAuthenticationFilter.class)
+                .oauth2Login(oauth -> oauth
+                        .successHandler(oAuth2SuccessHandler));
 
         return http.build();
     }

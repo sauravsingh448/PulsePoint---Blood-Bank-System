@@ -18,7 +18,6 @@ public class JwtProvider {
 
     // Generate JWT Token
     public String generateToken(CustomUserDetails userDetails, String role) {
-        //System.out.println("JWT SECRET LENGTH = " + SECRET.length());
         return Jwts.builder()
                 .setSubject(userDetails.getUsername())
                 .claim("userId", userDetails.getUserId())

@@ -33,6 +33,10 @@ public class DonorServiceImp implements DonorService {
         if (existingUser == null) {
             throw new RuntimeException("User not found");
         }
+        // Avoid duplicate updates
+        if(existingUser.isProfileCompleted()){
+            throw new RuntimeException("Profile already completed");
+        }
 
         // update allowed fields only (if value is provided.)
         if(updateUser.getName() != null){
@@ -47,6 +51,11 @@ public class DonorServiceImp implements DonorService {
         if(updateUser.getBloodGroup() != null){
             existingUser.setBloodGroup(updateUser.getBloodGroup());
         }
+        if(updateUser.getAge() != null){
+            existingUser.setAge(updateUser.getAge());
+        }
+        // mark profile completed AFTER successful update
+        existingUser.setProfileCompleted(true);
         return userRepository.save(existingUser);
     }
 

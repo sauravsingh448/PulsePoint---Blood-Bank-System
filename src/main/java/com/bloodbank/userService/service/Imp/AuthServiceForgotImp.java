@@ -14,7 +14,6 @@ import com.bloodbank.userService.repository.UserRepository;
 import com.bloodbank.userService.service.AuthServiceForgot;
 import com.bloodbank.userService.service.EmailService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.password.PasswordEncoder;
